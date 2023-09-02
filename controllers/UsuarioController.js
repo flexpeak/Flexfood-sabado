@@ -1,4 +1,4 @@
-const {usuarios} = require ('../models')
+const {usuarios, restaurantes} = require ('../models')
 const bcrypt = require ('bcrypt')
 const jwt = require ('jsonwebtoken')
 
@@ -70,17 +70,23 @@ module.exports = class UsuarioController{
     } 
     static validaToken (req, res, next){
         const token = req.headers['authorization']
-        jwt.verify (token, process.env.JWT_KEY, async (error, sucess)=>{
+        jwt.verify (token, process.env.JWT_KEY, async (error, success)=>{
             if (error){
                 return res.status(401).json({
                     error: 'Falha na autenticação'
                 })
             }else{
                // console.log('sucesso')
-               const usuario = await usuarios.findByPk(sucess)
+               const usuario = await usuarios.findByPk(success)
                 req.usuarioTipo = usuario.tipo
-                req.usuario_id = sucess
-               
+                req.usuario_id = success
+
+                const restaurante = await restaurantes.findOne({
+                        where: {
+                            usuario_id: success
+                        }
+                })
+                req.restaurante_id = restaurante?.id
                 next()
             }
         })
