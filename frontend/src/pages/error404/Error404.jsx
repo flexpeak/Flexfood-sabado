@@ -8,16 +8,19 @@ import figuraErro from './erro.avif'
 function Error404() {
     return (
         <Container style={{display: 'flex', justifyContent: 'center', alignItens: 'center', heigth: '100vh'}}>
-            <Card style={{ width: '400px' }}>
+            <Card style={{ width: '400px', marginTop: '70px' }}>
                 <Card.Img variant="top" src={figuraErro} />
                 <Card.Body style={{}}>
-                    <Card.Title style={{ width: '144pix', textAlign: 'center',display: 'flex' 
+                    <Card.Title style={{ fontSize: '72px', textAlign: 'center',display: 'flex' 
                      , justifyContent: 'center', alignItens: 'center' }}>Error</Card.Title>
-                    <Card.Text style={{ width: '72pix', textAlign: 'center',display: 'flex' 
+                    <Card.Text style={{ fontSize: '36px', textAlign: 'center',display: 'flex' 
                      , justifyContent: 'center', alignItens: 'center' }}>
                         Page not Found
                     </Card.Text>
-                    <Button variant="outline-danger" href='/'>Home</Button>
+                    <Button 
+                    style={{ fontSize: '36px', textAlign: 'center',display: 'flex' 
+                    , justifyContent: 'center', alignItens: 'center' }}
+                    variant="outline-danger" href='/'>Home</Button>
                 </Card.Body>
             </Card>
         </Container>
