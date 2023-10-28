@@ -41,7 +41,7 @@ function Login() {
 </Snackbar>
         <Card sx={{ maxWidth: 545 }}>
           <CardMedia
-            sx={{ height: 240 }}
+            sx={{ height: 340 }}
             image={LogoIfood}
             title="logo ifood"
           />

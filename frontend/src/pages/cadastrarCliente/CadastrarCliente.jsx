@@ -5,7 +5,7 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import LogoIfood from "./logo-ifood.png"
+import LogoIfood from "./logo1.png"
 import { Alert, Container, Snackbar, TextField } from '@mui/material';
 import { LoadingButton } from '@mui/lab';
 import api from '../../services/api'
@@ -51,9 +51,9 @@ function CadastrarCliente() {
                         {error}
                     </Alert>
                 </Snackbar>
-                <Card sx={{ maxWidth: 345 }}>
+                <Card sx={{ maxWidth: 545 }}>
                     <CardMedia
-                        sx={{ height: 240 }}
+                        sx={{ height: 340 }}
                         image={LogoIfood}
                         title="logo ifood"
                     />
