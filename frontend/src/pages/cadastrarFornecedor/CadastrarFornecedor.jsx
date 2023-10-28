@@ -19,19 +19,23 @@ function CadastrarFornecedor() {
     const [sucesso, setSucesso] = useState('')
     const [error, setError] = useState('')
     const handleClick = () => {
-        api.post('/registrar', {
-            nome: nome,
-            email: email,
-            senha: senha,
-            tipo: 'R'
-        }).then(({ data }) => {
-            setSucesso(true)
-            setEmail('')
-            setNome('')
-            setSenha('')
-        }).catch((e) => {
-            setError(e.response.data.error)
-        })
+        if (nome !== '' && email !== '' && senha !== ''){
+            api.post('/registrar', {
+                nome: nome,
+                email: email,
+                senha: senha,
+                tipo: 'R'
+            }).then(({ data }) => {
+                setSucesso(true)
+                setEmail('')
+                setNome('')
+                setSenha('')
+            }).catch((e) => {
+                setError(e.response.data.error)
+            })
+        } else {
+            setError("Preencha todos os Campos")  
+        }
     }
 
     return (

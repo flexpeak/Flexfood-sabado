@@ -19,25 +19,29 @@ function CadastrarCliente() {
     const [sucesso, setSucesso] = useState('')
     const [error, setError] = useState('')
     const handleClick = () => {
-        api.post('/registrar', {
-            nome: nome,
-            email: email,
-            senha: senha,
-            tipo: 'C'
-        }).then(({ data }) => {
-            setSucesso(true)
-            setEmail('')
-            setNome('')
-            setSenha('')
-        }).catch((e) => {
-            setError(e.response.data.error)
-        })
+        if (nome !== '' && email !== '' && senha !== '') {
+            api.post('/registrar', {
+                nome: nome,
+                email: email,
+                senha: senha,
+                tipo: 'C'
+            }).then(({ data }) => {
+                setSucesso(true)
+                setEmail('')
+                setNome('')
+                setSenha('')
+            }).catch((e) => {
+                setError(e.response.data.error)
+            })
+        } else {
+            setError("Preencha todos os Campos")
+        }
     }
 
     return (
         <>
             <Container sx={{ display: 'flex', justifyContent: 'center', marginTop: '150px' }}>
-            <Snackbar open={sucesso} autoHideDuration={6000}
+                <Snackbar open={sucesso} autoHideDuration={6000}
                     onClose={() => { setSucesso("") }}
                     anchorOrigin={{ vertical: 'top', horizontal: 'center' }}>
                     <Alert severity="success" sx={{ width: '100%' }}>
