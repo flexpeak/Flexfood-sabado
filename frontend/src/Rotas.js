@@ -20,17 +20,15 @@ const Rotas = () => {
         <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path="/login" element={<Login/>}/>
-        <Route path="/cadastrar-cliente" element={<CadastrarCliente/>}/>
-        <Route path="/cadastrar-fornecedor" element={<CadastrarFornecedor/>}/>
+        <Route path="/cadastrarcliente" element={<CadastrarCliente/>}/>
+        <Route path="/cadastrarfornecedor" element={<CadastrarFornecedor/>}/>
         <Route path="/dashboard" element={<Dashboard/>}/>
         <Route path="/restaurante" element={<Restaurante/>}/>
-
         <Route path="/produtos" element={<ProdutosIndex/>}/>
         <Route path="/produtos/form" element={<ProdutosForm/>}/>
         <Route path="/produtos/form/:id" element={<ProdutosForm/>}/>
-
         <Route path="/fazerpedido" element= {<FazerPedido/>} />
-        <Route path="/restaurante-produtos/:id" element={<RestauranteProdutos/>}/>
+        <Route path="/restauranteprodutos/:id" element={<RestauranteProdutos/>}/>
         <Route path="/meuspedidos" element={<MeusPedidos/>} />
         <Route path="/pedidos" element={<Pedidos/>} />
 

@@ -8,7 +8,7 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import { useNavigate } from 'react-router-dom';
 import { AddShoppingCart, Home, LunchDining, Restaurant, ShoppingBag, ShoppingCart } from '@mui/icons-material';
-import { CardMedia, Divider, Drawer, List, Menu, MenuItem } from '@mui/material';
+import {  Divider, Drawer, List, Menu, MenuItem } from '@mui/material';
 import ItemDaLista from '../../components/itemDaLista/ItemDaLista';
 import { CarrinhoContext } from '../../CarrinhoContext'
 import api from '../../services/api';

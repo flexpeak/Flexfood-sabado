@@ -21,7 +21,7 @@ const ProdutosForm = () => {
 
     const fileChange = (files) => {
         setFoto(files[0])
-    }
+    } 
 
     useEffect(() => {
         if (id) {

@@ -59,6 +59,7 @@ const PedidoRow = ({ pedido }) => {
                     {pedido.status === 'P' && (<Button variant='contained' onClick={handleConfirmar}>Confirmar</Button>)}
                     {pedido.status === 'V' && (<Button variant='contained' onClick={handleSaiu} color="warning">Saiu Para Entrega</Button>)}
                     {pedido.status === 'J' && (<Button variant='contained' onClick={handleEntregue} color="success">Entregue</Button>)}
+                    {pedido.status === 'E' && (<Button variant='contained' disabled >FINALIZADO</Button>)}
                 </TableCell>
                 <TableCell>{pedido.id}</TableCell>
                 <TableCell>{pedido.usuario.nome}</TableCell>

@@ -24,7 +24,7 @@ const Restaurante = ({ restaurante }) => {
                 </CardContent>
             </CardActionArea>
             <CardActions>
-                <Button size="small" color="primary" onClick={() => navigate('/restaurante-produtos/' + restaurante.id)}>
+                <Button size="small" color="primary" onClick={() => navigate('/restauranteprodutos/' + restaurante.id)}>
                     Produtos
                 </Button>
             </CardActions>
