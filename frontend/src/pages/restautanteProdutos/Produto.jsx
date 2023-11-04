@@ -1,14 +1,13 @@
 import { MoreVert } from '@mui/icons-material'
-import { Avatar, Card, CardActions, CardContent, 
-    CardHeader, CardMedia, IconButton, Menu, 
-    MenuItem, Typography } from '@mui/material'
-import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Avatar, Card, CardContent, CardHeader, CardMedia, IconButton,
+     Menu, MenuItem, Typography } from '@mui/material'
+import React, { useContext, useState } from 'react'
+import { CarrinhoContext } from '../../CarrinhoContext'
 
 const Produto = ({ produto }) => {
     const [anchorEl, setAnchorEl] = useState(null)
     const [open, setOpen] = useState(false)
-    const navigate = useNavigate()
+    const {carrinho, setCarrinho} = useContext(CarrinhoContext)
 
     const handleClick = (evento) => {
         setAnchorEl(evento.currentTarget)
@@ -28,10 +27,11 @@ const Produto = ({ produto }) => {
                         <IconButton aria-label="settings" onClick={handleClick}>
                             <MoreVert />
                         </IconButton>
-                        <Menu open={open} anchorEl={anchorEl} onClose={(e) => setOpen(false)}>
-                            <MenuItem onClick={ () => { navigate('/produtos/form/'
-                             + produto.id) } }>Editar</MenuItem>
-                            <MenuItem>Excluir</MenuItem>
+                        <Menu open={open} anchorEl={anchorEl} onClose={(e) => 
+                                setOpen(false)}>
+                            <MenuItem onClick={() => {
+                                setCarrinho([...carrinho, produto])
+                            }}>Incluir no carrinho</MenuItem>
                         </Menu>
                     </>
                 }
@@ -42,7 +42,7 @@ const Produto = ({ produto }) => {
                 component="img"
                 height="194"
                 image={process.env.REACT_APP_HOST_API + produto.foto}
-                alt=""
+                alt="Paella dish"
             />
             <CardContent>
                 <Typography variant="body2" color="text.secondary">
@@ -50,9 +50,6 @@ const Produto = ({ produto }) => {
                 </Typography>
 
             </CardContent>
-            <CardActions disableSpacing>
-                Quantidade em estoque: {produto.quantidade_estoque}
-            </CardActions>
         </Card>
     )
 }
